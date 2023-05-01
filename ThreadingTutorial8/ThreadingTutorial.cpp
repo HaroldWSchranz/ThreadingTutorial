@@ -5,31 +5,31 @@
 #include <thread>
 #include <vector>
 #include <mutex>
-//#include <glm/glm.hpp>
 
 void print(int i)
 {
 	static std::mutex myMutex;
 	std::lock_guard<std::mutex> guard(myMutex);
 	std::cout << "Hello Thread " << i << "\n";
-	std::cout << "I'm here squared..." << i*i << "\n";
-	std::cout << "...not there cubed " << i*i*i << ".\n";
+	std::cout << "I'm here squared..." << i * i << "\n";
+	std::cout << "...not there cubed " << i * i * i << ".\n";
 }
 
 int main()
 {
-	std::cout << "Threading Tutorial\n\n";
+	std::cout << "Threading Tutorial 8\n\n";
 	std::cout << ">>> Multiple Threads\n";
 	std::cout << "    using a lambda with parameters\n";
 
 	std::vector<std::thread> threads;
-	vec4 myVectors[50] = {};
 
-	for (int i = 0; i < 50; i++) {
+	for (int i = 0; i < 5; i++) {
 		threads.push_back(std::thread(
-			// defining a lambda that can access main scope with &
-			[&](int i) {
-				myVectors[i] = normalize(myVectors[i]);
+			// defining a lambda with 1 parameter
+			[](int i) {
+				std::cout << "Hello Thread " << i << "\n";
+				std::cout << "I'm here squared..." << i * i << "\n";
+				std::cout << "...not there cubed " << i * i * i << ".\n";
 			}, i
 		));
 	}
@@ -79,15 +79,4 @@ int main()
 
 	return 0;
 }
-
-vec4 version of this?
-Or glm::normalize?
-
-vec3 normalize(const vec3 &v)
-{
-   float length_of_v = sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
-   return vec3(v.x / length_of_v, v.y / length_of_v, v.z / length_of_v);
-}
-
-
 */

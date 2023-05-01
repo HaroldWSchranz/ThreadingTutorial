@@ -11,22 +11,24 @@ void print(int i)
 	static std::mutex myMutex;
 	std::lock_guard<std::mutex> guard(myMutex);
 	std::cout << "Hello Thread " << i << "\n";
-	std::cout << "I'm here squared..." << i*i << "\n";
-	std::cout << "...not there cubed " << i*i*i << ".\n";
+	std::cout << "I'm here squared..." << i * i << "\n";
+	std::cout << "...not there cubed " << i * i * i << ".\n";
 }
 
 int main()
 {
-	std::cout << "Threading Tutorial\n\n";
+	std::cout << "Threading Tutorial 9\n\n";
 	std::cout << ">>> Multiple Threads\n";
 	std::cout << "    using a lambda with parameters\n";
 
 	std::vector<std::thread> threads;
+	std::mutex myMutex;
 
 	for (int i = 0; i < 5; i++) {
 		threads.push_back(std::thread(
-			// defining a lambda with 1 parameter
-			[](int i) {
+			// defining a lambda with 1 parameter that can access myMutex
+			[&myMutex](int i) {
+				std::lock_guard<std::mutex> guard(myMutex);
 				std::cout << "Hello Thread " << i << "\n";
 				std::cout << "I'm here squared..." << i * i << "\n";
 				std::cout << "...not there cubed " << i * i * i << ".\n";

@@ -14,7 +14,7 @@ void print()
 
 int main()
 {
-	std::cout << "Threading Tutorial\n\n";
+	std::cout << "Threading Tutorial 2\n\n";
 
 	std::cout << ">>> Single Thread\n";
 

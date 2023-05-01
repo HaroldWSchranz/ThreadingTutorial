@@ -17,11 +17,11 @@ void print(int i)
 
 int main()
 {
-	std::cout << "Threading Tutorial\n\n";
+	std::cout << "Threading Tutorial 5\n\n";
 	std::cout << ">>> Multiple Threads\n";
 
 	std::vector<std::thread> threads;
-	for (int i = 0; i < 50; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		threads.push_back(std::thread(print, i));
 	}

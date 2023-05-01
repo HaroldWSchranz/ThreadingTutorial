@@ -17,7 +17,7 @@ void print(int i)
 
 int main()
 {
-	std::cout << "Threading Tutorial\n\n";
+	std::cout << "Threading Tutorial 6\n\n";
 	std::cout << ">>> Multiple Threads\n";
 	std::cout << "    using a lambda with no parameters\n";
 
